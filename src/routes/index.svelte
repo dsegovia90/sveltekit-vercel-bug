@@ -1,6 +1,5 @@
 <script lang="ts">
-import { browser } from '$app/env';
-
+	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 
 	let ably = null
@@ -9,6 +8,7 @@ import { browser } from '$app/env';
 		if (browser) {
 			const module = await import('ably')
 			ably = module.default
+			ably
 		}
 	})
 </script>
