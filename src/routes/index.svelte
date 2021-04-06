@@ -1,14 +1,16 @@
 <script lang="ts">
+import { browser } from '$app/env';
+
 	import { onMount } from 'svelte';
 
 	let ably = null
 	// just so i don't have unused import warnings
 	onMount(async () => {
-    const module = await import('ably')
-		ably = module.default
+		if (browser) {
+			const module = await import('ably')
+			ably = module.default
+		}
 	})
-
-	// or
 </script>
 
 <main>
